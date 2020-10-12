@@ -55,7 +55,7 @@ tidy_data <- extracted_data %>%
 # and each subject
 average_data <- tidy_data %>% 
     group_by(subject, activity, signal, statistics, axis) %>%
-    summarize(avarage = mean(value))
+    summarize(average = mean(value, na.rm = TRUE))
 
 # export the data set
 write.table(average_data,"./uploaded.txt",row.name = FALSE)
